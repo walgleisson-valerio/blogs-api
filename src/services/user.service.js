@@ -23,7 +23,11 @@ const createUser = async (newUser) => {
 
 const getUsers = async () => User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
 
+const getUserById = async (id) => User
+  .findByPk(id, { attributes: ['id', 'displayName', 'email', 'image'] });
+
 module.exports = {
   createUser,
   getUsers,
+  getUserById,
 };

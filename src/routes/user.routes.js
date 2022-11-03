@@ -9,4 +9,6 @@ routes.post('/', userMiddleware.validateBody, userController.createUser);
 
 routes.get('/', authMiddleware.validateToken, userController.getUsers);
 
+routes.get('/:id', authMiddleware.validateToken, userController.getUserById);
+
 module.exports = routes;

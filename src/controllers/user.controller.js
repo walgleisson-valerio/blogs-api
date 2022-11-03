@@ -12,7 +12,21 @@ const getUsers = async (req, res) => {
   res.status(200).json(users);
 };
 
+const getUserById = async (req, res) => {
+  const { id } = req.params;
+  const user = await userService.getUserById(id);
+
+  if (!user) {
+    const err = new Error('User does not exist');
+    err.status = 404;
+    throw err;
+  }
+
+  res.status(200).json(user);
+};
+
 module.exports = {
   createUser,
   getUsers,
+  getUserById,
 };
