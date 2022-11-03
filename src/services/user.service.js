@@ -21,6 +21,9 @@ const createUser = async (newUser) => {
   return token;
 };
 
+const getUsers = async () => User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
+
 module.exports = {
   createUser,
+  getUsers,
 };
