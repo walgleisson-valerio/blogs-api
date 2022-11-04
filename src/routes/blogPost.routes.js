@@ -6,4 +6,6 @@ const routes = express.Router();
 
 routes.get('/', authMiddleware.validateToken, blogPostController.getBlogPosts);
 
+routes.get('/:id', authMiddleware.validateToken, blogPostController.getBlogPostById);
+
 module.exports = routes;
